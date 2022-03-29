@@ -29,6 +29,20 @@ router.get('/:id',async(req,res)=>{
 })
 
 
+router.delete('/:id/delete',async(req,res)=>{
+   
+   try{
+      console.log("Home Page Data delete");
+      const database=await db.findById(req.params.id);
+      const a1=database.deleteOne().save();
+      res.json(a1);
+   }catch(err)
+   {
+      res.send(err);
+   }
+})
+
+
 
 router.patch('/:id',async(req,res)=>{
    
